@@ -1,18 +1,19 @@
 import {App, PluginSettingTab, Setting} from "obsidian";
-import MyPlugin from "./main";
+import MagicTitleStartPlugin from "./main";
+import {DEFAULT_TEMPLATE_PATH} from "./utils/template";
 
-export interface MyPluginSettings {
-	mySetting: string;
+export interface MagicTitleSettings {
+	templatePath: string;
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
-	mySetting: 'default'
-}
+export const DEFAULT_SETTINGS: MagicTitleSettings = {
+	templatePath: "",
+};
 
-export class SampleSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
+export class MagicTitleSettingTab extends PluginSettingTab {
+	plugin: MagicTitleStartPlugin;
 
-	constructor(app: App, plugin: MyPlugin) {
+	constructor(app: App, plugin: MagicTitleStartPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -23,13 +24,13 @@ export class SampleSettingTab extends PluginSettingTab {
 		containerEl.empty();
 
 		new Setting(containerEl)
-			.setName('Settings #1')
-			.setDesc('It\'s a secret')
-			.addText(text => text
-				.setPlaceholder('Enter your secret')
-				.setValue(this.plugin.settings.mySetting)
+			.setName("Template note")
+			.setDesc("Path to the note containing the rules table.")
+			.addText((text) => text
+				.setPlaceholder(DEFAULT_TEMPLATE_PATH)
+				.setValue(this.plugin.settings.templatePath)
 				.onChange(async (value) => {
-					this.plugin.settings.mySetting = value;
+					this.plugin.settings.templatePath = value.trim();
 					await this.plugin.saveSettings();
 				}));
 	}
