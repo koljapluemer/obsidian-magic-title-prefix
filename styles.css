@@ -6,3 +6,38 @@ available in the app when your plugin is enabled.
 If your plugin does not need CSS, delete this file.
 
 */
+
+.magic-title-toolbar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 8px;
+	background-color: var(--background-secondary);
+	border-top: 1px solid var(--background-modifier-border);
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	z-index: 10;
+	box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.magic-title-toolbar-btn {
+	padding: 4px 12px;
+	background-color: var(--interactive-normal);
+	color: var(--text-normal);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: all 0.15s ease;
+}
+
+.magic-title-toolbar-btn:hover {
+	background-color: var(--interactive-hover);
+}
+
+.magic-title-toolbar-btn:active {
+	background-color: var(--interactive-accent);
+	color: var(--text-on-accent);
+}

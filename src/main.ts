@@ -1,6 +1,7 @@
 import {Plugin} from "obsidian";
 import {registerCommands} from "./commands";
 import {DEFAULT_SETTINGS, MagicTitleSettings, MagicTitleSettingTab} from "./settings";
+import {initializeToolbarFeature} from "./toolbar";
 
 export default class MagicTitleStartPlugin extends Plugin {
 	settings: MagicTitleSettings;
@@ -9,6 +10,10 @@ export default class MagicTitleStartPlugin extends Plugin {
 		await this.loadSettings();
 		registerCommands(this);
 		this.addSettingTab(new MagicTitleSettingTab(this.app, this));
+
+		// Initialize toolbar feature
+		const cleanupToolbar = initializeToolbarFeature(this);
+		this.register(cleanupToolbar);
 	}
 
 	async loadSettings() {
