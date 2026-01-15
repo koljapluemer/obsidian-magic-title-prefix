@@ -1,8 +1,9 @@
 {
-	"id": "obsidian-magic-title-start",
-	"name": "Magic Title Start",
+	"id": "obsidian-magic-title-prefix",
+	"name": "Magic Title Prefix",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Guide note titles to start with approved prefixes and validate content.",
+	"author": "Kolja Sam",
 	"isDesktopOnly": false
 }

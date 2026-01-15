@@ -1,7 +1,8 @@
 {
-	"name": "obsidian-magic-title-start",
+	"name": "obsidian-magic-title-prefix",
 	"version": "1.0.0",
 	"description": "Guide note titles to start with approved prefixes and validate content.",
+	"author": "Kolja Sam",
 	"main": "main.js",
 	"type": "module",
 	"scripts": {
